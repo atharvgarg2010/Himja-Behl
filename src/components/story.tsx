@@ -68,7 +68,7 @@ export function Story() {
           transition={{ duration: 1, delay: 0.3 }}
         >
           {/* 2-Column Magazine Text Format */}
-          <div className="columns-1 md:columns-2 gap-12 md:gap-20 space-y-6 md:space-y-8 text-[#1A0407]/70 font-light font-sans text-sm md:text-base leading-[2.2] mb-16">
+          <div className="columns-1 md:columns-2 gap-12 md:gap-20 space-y-6 md:space-y-8 text-[#1A0407]/70 font-light font-sans text-xs md:text-base leading-[2] md:leading-[2.2] mb-16">
             <p>A wedding is never just one outfit. There is the ceremony, the evening, the smaller gathering before it, the photographs, the people standing beside you and the atmosphere that ties everything together.</p>
             <p>Himja's approach to styling begins with looking at the celebration as a whole. She works closely with her clients to understand who they are, what they want to feel like, what the occasion demands and how every look can exist within the larger visual story.</p>
             <p>From the bride and groom to their immediate family, every wardrobe is considered with intention — silhouettes, colours, fabrics, jewellery, accessories and the way everything will come together in the room.</p>
@@ -76,13 +76,13 @@ export function Story() {
           </div>
           
           {/* Interruption CTA block */}
-          <div className="flex flex-col lg:flex-row items-center justify-between border-t border-b border-dust-gold/20 py-12 md:py-16 gap-8">
-            <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-[#1A0407] italic max-w-2xl text-center lg:text-left leading-[1.2]">
+          <div className="flex flex-col lg:flex-row items-center justify-between border-t border-b border-dust-gold/20 py-10 md:py-16 gap-8">
+            <h3 className="font-display text-xl md:text-3xl lg:text-4xl text-[#1A0407] italic max-w-2xl text-center lg:text-left leading-[1.3] md:leading-[1.2]">
               The goal is never to make everyone look the same. It is to make everyone look like they belong together.
             </h3>
             <Link
               href="#enquire"
-              className="inline-flex shrink-0 items-center justify-center px-10 py-5 bg-[#1A0407] text-warm-white font-sans text-xs tracking-[0.2em] uppercase transition-all duration-500 hover:bg-dust-gold hover:text-[#1A0407] shadow-lg hover:shadow-xl"
+              className="inline-flex shrink-0 items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-[#1A0407] text-warm-white font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase transition-all duration-500 hover:bg-dust-gold hover:text-[#1A0407] shadow-lg hover:shadow-xl"
             >
               Start Your Edit
             </Link>
