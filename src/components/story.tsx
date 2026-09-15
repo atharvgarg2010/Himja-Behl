@@ -82,7 +82,7 @@ export function Story() {
             </h3>
             <Link
               href="#enquire"
-              className="inline-flex shrink-0 items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-[#1A0407] text-warm-white font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase transition-all duration-500 hover:bg-dust-gold hover:text-[#1A0407] shadow-lg hover:shadow-xl"
+              className="inline-flex shrink-0 items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-[#641D26] text-warm-white font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#7A232E] hover:text-warm-white shadow-lg hover:shadow-xl"
             >
               Start Your Edit
             </Link>

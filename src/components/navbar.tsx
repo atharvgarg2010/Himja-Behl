@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -88,38 +89,58 @@ export function Navbar() {
       </header>
 
       {/* Mobile Navigation Overlay */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] flex flex-col justify-center items-center bg-[#4A151C]">
-          <button
-            className="absolute top-6 right-6 p-2 text-warm-white"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Close menu"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[60] flex flex-col justify-center items-center bg-[#4A151C]"
           >
-            <X className="w-8 h-8" strokeWidth={1.5} />
-          </button>
-          
-          <nav className="flex flex-col items-center space-y-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-warm-white font-display text-4xl tracking-widest uppercase hover:text-dust-gold transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            
-            <Link
-              href="#enquire"
+            <button
+              className="absolute top-6 right-6 p-2 text-warm-white"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-8 text-dust-gold text-xs font-sans tracking-[0.2em] border border-dust-gold/40 px-8 py-4 hover:bg-dust-gold hover:text-[#1A0407] transition-all duration-300 uppercase"
+              aria-label="Close menu"
             >
-              LET'S TALK
-            </Link>
-          </nav>
-        </div>
-      )}
+              <X className="w-8 h-8" strokeWidth={1.5} />
+            </button>
+            
+            <nav className="flex flex-col items-center space-y-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-warm-white font-display text-4xl tracking-widest uppercase hover:text-dust-gold transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + navLinks.length * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link
+                  href="#enquire"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-8 inline-block text-dust-gold text-xs font-sans tracking-[0.2em] border border-dust-gold/40 px-8 py-4 hover:bg-dust-gold hover:text-[#1A0407] transition-all duration-300 uppercase"
+                >
+                  LET'S TALK
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
