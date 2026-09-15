@@ -31,14 +31,17 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
           isScrolled
-            ? "bg-black/10 backdrop-blur-xl py-4 shadow-sm border-b border-dust-gold/10"
+            ? "bg-warm-white/95 backdrop-blur-md py-4 shadow-sm border-b border-dust-gold/20"
             : "bg-transparent py-6"
         )}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link
             href="/"
-            className="text-warm-white font-display text-2xl md:text-3xl tracking-widest uppercase font-medium"
+            className={cn(
+              "font-display text-2xl md:text-3xl tracking-widest uppercase font-medium transition-colors duration-500",
+              isScrolled ? "text-[#1A0407]" : "text-warm-white"
+            )}
           >
             Himja Behl
           </Link>
@@ -49,14 +52,22 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-warm-white/80 hover:text-warm-white transition-colors text-xs font-sans tracking-[0.15em]"
+                className={cn(
+                  "transition-colors text-xs font-sans tracking-[0.15em] duration-500",
+                  isScrolled ? "text-[#1A0407]/70 hover:text-dust-gold" : "text-warm-white/80 hover:text-warm-white"
+                )}
               >
                 {link.name}
               </Link>
             ))}
             <Link
               href="#enquire"
-              className="text-dust-gold text-xs font-sans tracking-[0.15em] border border-dust-gold/30 px-5 py-2.5 hover:bg-dust-gold hover:text-maroon-dark transition-all duration-300"
+              className={cn(
+                "text-xs font-sans tracking-[0.15em] border px-5 py-2.5 transition-all duration-500",
+                isScrolled 
+                  ? "text-[#1A0407] border-[#1A0407]/30 hover:bg-[#1A0407] hover:text-warm-white" 
+                  : "text-dust-gold border-dust-gold/30 hover:bg-dust-gold hover:text-maroon-dark"
+              )}
             >
               LET'S TALK
             </Link>
@@ -64,7 +75,10 @@ export function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-warm-white p-2"
+            className={cn(
+              "md:hidden p-2 transition-colors duration-500",
+              isScrolled ? "text-[#1A0407]" : "text-warm-white"
+            )}
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
           >
