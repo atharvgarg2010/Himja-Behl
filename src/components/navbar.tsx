@@ -31,7 +31,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
           isScrolled
-            ? "bg-maroon/95 backdrop-blur-md py-4 shadow-sm"
+            ? "bg-black/10 backdrop-blur-xl py-4 shadow-sm border-b border-dust-gold/10"
             : "bg-transparent py-6"
         )}
       >
@@ -56,7 +56,7 @@ export function Navbar() {
             ))}
             <Link
               href="#enquire"
-              className="text-warm-white text-xs font-sans tracking-[0.15em] border border-warm-white/30 px-5 py-2.5 hover:bg-warm-white hover:text-maroon transition-all duration-300"
+              className="text-dust-gold text-xs font-sans tracking-[0.15em] border border-dust-gold/30 px-5 py-2.5 hover:bg-dust-gold hover:text-maroon-dark transition-all duration-300"
             >
               LET'S TALK
             </Link>
@@ -75,7 +75,7 @@ export function Navbar() {
 
       {/* Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-maroon flex flex-col justify-center items-center">
+        <div className="fixed inset-0 z-[60] flex flex-col justify-center items-center bg-[#4A151C]">
           <button
             className="absolute top-6 right-6 p-2 text-warm-white"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -90,11 +90,19 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-warm-white font-display text-4xl tracking-widest uppercase"
+                className="text-warm-white font-display text-4xl tracking-widest uppercase hover:text-dust-gold transition-colors"
               >
                 {link.name}
               </Link>
             ))}
+            
+            <Link
+              href="#enquire"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-8 text-dust-gold text-xs font-sans tracking-[0.2em] border border-dust-gold/40 px-8 py-4 hover:bg-dust-gold hover:text-[#1A0407] transition-all duration-300 uppercase"
+            >
+              LET'S TALK
+            </Link>
           </nav>
         </div>
       )}

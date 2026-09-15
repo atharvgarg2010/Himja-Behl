@@ -4,19 +4,23 @@
   --background: #F6F3EE; /* Warm White */
   --foreground: #171515; /* Deep Charcoal */
   --color-maroon: #641D26;
+  --color-maroon-dark: #3F0E14; /* For gradients */
   --color-warm-white: #F6F3EE;
   --color-ivory: #EEE9E1;
   --color-charcoal: #171515;
   --color-black: #000000;
+  --color-dust-gold: #A4803F; /* Custom luxury gold accent */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-maroon: var(--color-maroon);
+  --color-maroon-dark: var(--color-maroon-dark);
   --color-warm-white: var(--color-warm-white);
   --color-ivory: var(--color-ivory);
   --color-charcoal: var(--color-charcoal);
+  --color-dust-gold: var(--color-dust-gold);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
