@@ -10,10 +10,11 @@ An ultra-premium, editorial-style portfolio website built for Himja Behl. The de
 
 ## Development Progress
 - [x] **Phase 0: Foundation** - Environment setup, global tokens, luxury color palette (Maroon, Dust Gold, Warm White), fluid typography setup.
-- [x] **Phase 1: The Entrance** - Responsive Navbar with scrolling frosted-glass effect, mobile burger menu, highly optimized Hero section featuring fluid typography and custom premium radial gradients.
-- [ ] **Phase 2: The Story** - (Pending)
-- [ ] **Phase 3: The Process** - (Pending)
-- [ ] **Phase 4: Connect** - (Pending)
+- [x] **Phase 1: The Entrance** - Responsive Navbar with framer-motion mobile menu, scrolling frosted-glass effect, and highly optimized Hero section featuring fluid typography and custom premium radial gradients.
+- [x] **Phase 2: The Story** - Magazine-style editorial layout, responsive and readable fluid typography, elegant pull-quotes, and a high-contrast direct conversion CTA.
+- [ ] **Phase 3: Editorial Scroller** - (Pending)
+- [ ] **Phase 4: Client Journeys** - (Pending)
+- [ ] **Phase 5-10** - See PHASES.md
 
 ## Design System
 - **Typography**: Primary Display Serif, Secondary Clean Sans.
