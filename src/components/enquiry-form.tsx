@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { HimjaEdit } from "./himja-edit";
+
 const formSchema = z.object({
   who: z.string().min(1, "Please select who we are styling"),
   lookingFor: z.array(z.string()).min(1, "Please select at least one event"),
@@ -74,7 +76,7 @@ export function EnquiryForm() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     // In Phase 9 this will be hooked up to an actual backend
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
@@ -94,21 +96,7 @@ export function EnquiryForm() {
   };
 
   if (isSubmitted) {
-    return (
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-24 flex flex-col items-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-dust-gold/20 flex items-center justify-center mb-8">
-          <CheckCircle2 className="w-8 h-8 text-dust-gold" />
-        </div>
-        <h3 className="font-display text-4xl mb-6">Your Edit is being prepared.</h3>
-        <p className="font-sans text-warm-white/70 max-w-md mx-auto leading-relaxed">
-          Thank you for sharing your vision. We will review your details and reach out shortly to begin your private styling consultation.
-        </p>
-      </motion.div>
-    );
+    return <HimjaEdit styleDirection={currentStyle} />;
   }
 
   return (
