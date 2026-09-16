@@ -3,7 +3,12 @@ import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#1A0407] text-warm-white border-t border-white/10 pt-24 pb-12 overflow-hidden relative">
+    <footer 
+      className="text-warm-white border-t border-white/10 pt-24 pb-12 overflow-hidden relative"
+      style={{
+        background: 'radial-gradient(circle at 50% 45%, #58171f 0%, #4A151C 40%, #1A0407 100%)'
+      }}
+    >
       {/* Massive Background Typography */}
       <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center pointer-events-none select-none opacity-5">
         <span className="font-display text-[12vw] leading-none tracking-tight uppercase whitespace-nowrap translate-y-8">
