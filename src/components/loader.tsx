@@ -7,6 +7,13 @@ export function Loader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    if (hasVisited) {
+      setIsLoading(false);
+      return;
+    }
+
+    sessionStorage.setItem('hasVisited', 'true');
     // Disable scrolling while loading
     document.body.style.overflow = "hidden";
     

@@ -84,7 +84,6 @@ Additional:  ${data.additional || ''}
       };
 
       await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully via nodemailer");
     } catch (emailError) {
       console.error("Failed to send email via nodemailer:", emailError);
       // We don't fail the whole request just because email failed, since CSV saved!
