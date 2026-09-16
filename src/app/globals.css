@@ -23,6 +23,7 @@
   --color-dust-gold: var(--color-dust-gold);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --font-quote: var(--font-quote);
 }
 
 body {

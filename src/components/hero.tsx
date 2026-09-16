@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -11,6 +12,22 @@ export function Hero() {
         background: 'radial-gradient(circle at 50% 45%, #58171f 0%, #4A151C 40%, #1A0407 100%)'
       }}
     >
+      {/* Faint Background Illustration */}
+      <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+        <div 
+          className="relative w-full max-w-[800px] aspect-[3/2] opacity-20 mix-blend-screen"
+          style={{ maskImage: 'radial-gradient(circle, black 40%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 70%)' }}
+        >
+          <Image
+            src="/hero-illustration.jpg"
+            alt="Wedding Illustration"
+            fill
+            className="object-cover invert sepia saturate-200 hue-rotate-[-15deg]"
+            priority
+          />
+        </div>
+      </div>
+
       <div className="max-w-[1200px] mx-auto w-full px-6 md:px-12 relative z-10 flex flex-col items-center justify-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
