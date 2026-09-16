@@ -27,8 +27,8 @@ export function Loader() {
         <motion.div
           key="loader"
           initial={{ opacity: 1 }}
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="fixed inset-0 z-[100] bg-[#1A0407] flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Subtle background gradient to match the brand */}
