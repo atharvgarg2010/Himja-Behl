@@ -1,3 +1,4 @@
+import { Loader } from "@/components/loader";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Story } from "@/components/story";
@@ -10,6 +11,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-warm-white selection:bg-maroon selection:text-warm-white">
+      <Loader />
       <Navbar />
       <Hero />
       <Story />
