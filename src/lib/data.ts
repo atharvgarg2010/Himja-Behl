@@ -1,0 +1,50 @@
+export const journeys = [
+  {
+    id: "01",
+    slug: "anya-dhruv",
+    title: "The Modern Minimalist",
+    client: "Anya & Dhruv",
+    context: "Delhi / 3 Days / 4 Looks",
+    quote: "Himja didn't just find me clothes, she found pieces that felt like they belonged to me. The process was calm, intentional and incredibly personal.",
+    image: "/journey-minimalist.jpg",
+    aspectRatio: "aspect-[3/4]",
+    styleDirection: "Modern Romantic",
+    tags: ["ELEGANT", "CONTEMPORARY", "EXPRESSIVE"],
+    description: "Anya and Dhruv wanted their wedding wardrobe to reflect their personal style: clean, understated, and completely free of heavy embellishments. We focused on pure fabrics, sharp silhouettes, and a muted pastel palette that allowed their personalities to shine through rather than the clothes wearing them.",
+    brief: "To create a cohesive 4-look wardrobe for a 3-day Delhi wedding that prioritized comfort, mobility, and modern minimalism without losing the traditional essence of an Indian wedding.",
+    process: "We began by editing out any designers known for heavy zardozi or overwhelming patterns. Instead, we sourced from contemporary couturiers specializing in raw silks, subtle tone-on-tone threadwork, and structural draping. We spent days ensuring the tailoring for Dhruv's sherwani perfectly matched the effortless grace of Anya's lehenga.",
+    result: "A masterclass in modern Indian minimalism. The final looks were universally praised for their elegance, and most importantly, both the bride and groom felt entirely like themselves throughout the entire celebration."
+  },
+  {
+    id: "02",
+    slug: "meera",
+    title: "The Heritage Revival",
+    client: "Meera's Trousseau",
+    context: "Jaipur / Heritage / Heirloom Integration",
+    quote: "We took my mother's vintage Banarasi and reimagined the entire look around it. It was exactly what I wanted, but better than I could have imagined.",
+    image: "/journey-heritage.jpg",
+    aspectRatio: "aspect-[4/3] md:aspect-[4/3]",
+    styleDirection: "Heirloom Traditional",
+    tags: ["REGAL", "VINTAGE", "TIMELESS"],
+    description: "Meera possessed a stunning, 40-year-old Banarasi silk sari passed down from her mother. The challenge was to integrate this deeply personal heirloom into her modern wedding trousseau without making it feel dated or disjointed from the rest of her events.",
+    brief: "To build an entire bridal trousseau around a single heirloom piece, ensuring all other outfits complemented the vintage aesthetic while maintaining a regal, Jaipur-appropriate grandeur.",
+    process: "The heirloom sari became the anchor. We carefully restored the fabric and paired it with a custom-designed, contemporary blouse to give it new life. For the remaining events, we sourced rich velvets, antique gold dabka work, and deep maroons to create a continuous thread of heritage luxury across all three days.",
+    result: "A trousseau that bridged generations. Meera looked like royalty, honoring her family's history while standing confidently as a modern bride in her own right."
+  },
+  {
+    id: "03",
+    slug: "kabir",
+    title: "The Groom's Edit",
+    client: "Kabir",
+    context: "Mumbai / 2 Days / Contemporary Classic",
+    quote: "I thought I knew what I wanted until Himja showed me what was possible. The tailoring, the fabrics, the subtle details—everything was immaculate.",
+    image: "/journey-groom.jpg",
+    aspectRatio: "aspect-[3/4]",
+    styleDirection: "Sharp & Structured",
+    tags: ["TAILORED", "MASCULINE", "REFINED"],
+    description: "Menswear in Indian weddings is often an afterthought, relegated to whatever matches the bride. Kabir wanted to change that. He wanted a wardrobe that was sharp, meticulously tailored, and held its own weight in the visual narrative of the wedding.",
+    brief: "To curate a 3-look groom's wardrobe focusing entirely on cut, fabric quality, and subtle, sophisticated detailing rather than heavy embellishment.",
+    process: "We abandoned the standard retail routes and went straight to bespoke tailors. We selected a deep, custom-dyed charcoal green silk for the main sherwani, focusing obsessively on the fit of the shoulders and the drape of the fabric. We paired it with minimalist, architectural jewelry that added weight without clutter.",
+    result: "A commanding presence. Kabir's wardrobe proved that grooms do not have to fade into the background. The immaculate tailoring and rich, unusual colors made him look sharp, confident, and completely at ease."
+  }
+];

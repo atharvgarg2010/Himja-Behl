@@ -13,8 +13,9 @@ An ultra-premium, editorial-style portfolio website built for Himja Behl. The de
 - [x] **Phase 1: The Entrance** - Responsive Navbar with framer-motion mobile menu, scrolling frosted-glass effect, and highly optimized Hero section featuring fluid typography and custom premium radial gradients.
 - [x] **Phase 2: The Story** - Magazine-style editorial layout, responsive and readable fluid typography, elegant pull-quotes, and a high-contrast direct conversion CTA.
 - [x] **Phase 3: Editorial Scroller** - Infinite horizontal scrolling marquee using framer-motion with premium typography, large editorial phrases, and seamless faded-edge looping.
-- [ ] **Phase 4: Client Journeys** - (Pending)
-- [ ] **Phase 5-10** - See PHASES.md
+- [x] **Phase 4: Client Journeys** - Created an asymmetric, alternating 'zigzag' editorial grid with hover interactions and custom AI-generated placeholders.
+- [x] **Phase 5: Individual Journey Pages** - Built dynamic routing (`/journeys/[slug]`) featuring full-bleed hero images, process breakdowns, and continuous next-journey navigation.
+- [ ] **Phase 6-10** - See PHASES.md
 
 ## Design System
 - **Typography**: Primary Display Serif, Secondary Clean Sans.
