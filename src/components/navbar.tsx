@@ -44,7 +44,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
           isOnDarkSection
-            ? "bg-[#1A0407]/95 backdrop-blur-md py-4 shadow-sm border-b border-white/10"
+            ? "bg-transparent backdrop-blur-md py-4 shadow-sm border-b border-white/10"
             : isScrolled
               ? "bg-warm-white/95 backdrop-blur-md py-4 shadow-sm border-b border-dust-gold/20"
               : "bg-transparent py-6"
