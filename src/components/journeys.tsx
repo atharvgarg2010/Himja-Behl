@@ -8,7 +8,7 @@ import { journeys } from "@/lib/data";
 
 export function Journeys() {
   return (
-    <section className="bg-warm-white py-24 md:py-40 text-[#1A0407] selection:bg-dust-gold selection:text-maroon overflow-hidden">
+    <section id="journeys" className="bg-warm-white pt-24 md:pt-40 pb-12 md:pb-20 text-[#1A0407] selection:bg-dust-gold selection:text-maroon overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Section Header */}
         <motion.div 
