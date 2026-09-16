@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { useState } from "react";
 
 interface HimjaEditProps {
-  styleDirection: string;
+  data: any;
 }
 
 const ARCHETYPES: Record<string, any> = {
@@ -53,9 +53,48 @@ const ARCHETYPES: Record<string, any> = {
   }
 };
 
-export function HimjaEdit({ styleDirection }: HimjaEditProps) {
+export function HimjaEdit({ data }: HimjaEditProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const styleDirection = data?.styleDirection || "Contemporary";
+
   // Fallback to Contemporary if for some reason it's missing
   const edit = ARCHETYPES[styleDirection] || ARCHETYPES["Contemporary"];
+
+  const submitLead = async () => {
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setIsSuccess(true);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    setIsSubmitting(false);
+  };
+
+  if (isSuccess) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="text-center py-24 flex flex-col items-center"
+      >
+        <div className="w-16 h-16 rounded-full bg-dust-gold/20 flex items-center justify-center mb-8">
+          <CheckCircle2 className="w-8 h-8 text-dust-gold" />
+        </div>
+        <h3 className="font-display text-4xl mb-6 text-warm-white">Consultation Confirmed</h3>
+        <p className="font-sans text-warm-white/70 max-w-md mx-auto leading-relaxed">
+          Thank you for sharing your vision. Your Edit has been saved, and Himja will personally review it before reaching out to you.
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div 
@@ -126,13 +165,18 @@ export function HimjaEdit({ styleDirection }: HimjaEditProps) {
             <h4 className="font-display text-3xl md:text-4xl uppercase tracking-tight mb-6">
               Let's Bring It To Life
             </h4>
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-4 bg-dust-gold text-[#1A0407] px-8 py-4 font-sans text-xs tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors group"
+            <button
+              onClick={submitLead}
+              disabled={isSubmitting}
+              className="inline-flex items-center gap-4 bg-dust-gold text-[#1A0407] px-8 py-4 font-sans text-xs tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors group disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Confirm Consultation
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              {isSubmitting ? "Sending Edit..." : "Confirm Consultation"}
+              {isSubmitting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              )}
+            </button>
           </div>
         </div>
       </div>

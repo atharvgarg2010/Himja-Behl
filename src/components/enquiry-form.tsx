@@ -96,7 +96,7 @@ export function EnquiryForm() {
   };
 
   if (isSubmitted) {
-    return <HimjaEdit styleDirection={currentStyle} />;
+    return <HimjaEdit data={watch()} />;
   }
 
   return (

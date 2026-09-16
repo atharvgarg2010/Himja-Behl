@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import { exec } from 'child_process';
-import util from 'util';
-
-const execAsync = util.promisify(exec);
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
@@ -47,18 +44,49 @@ export async function POST(request: Request) {
     // Append the new row
     fs.appendFileSync(csvPath, row);
 
-    // 2. Execute the Python script to send the email
-    // We pass the data as a JSON string argument to the python script
-    const scriptPath = path.join(process.cwd(), 'scripts', 'send_email.py');
-    const jsonStr = JSON.stringify(data).replace(/"/g, '\\"'); // escape quotes for shell
-    
-    // Run the python script in the background (we don't strictly need to await it to return success to the user, 
-    // but we will to ensure we catch basic errors)
+    // 2. Execute Nodemailer
     try {
-      const command = `python "${scriptPath}" "${jsonStr}"`;
-      await execAsync(command);
-    } catch (pythonError) {
-      console.error("Failed to execute python email script:", pythonError);
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'gargatharv2010@gmail.com',
+          pass: 'eyfgxhcndjqhkrhh',
+        },
+      });
+
+      const mailOptions = {
+        from: 'gargatharv2010@gmail.com',
+        to: 'gargatharv2010@gmail.com',
+        subject: `New Styling Enquiry: ${data.name || 'Unknown'}`,
+        text: `
+New Styling Enquiry Received!
+
+--- CONTACT DETAILS ---
+Name:  ${data.name || ''}
+Email: ${data.email || ''}
+Phone: ${data.phone || ''}
+
+--- STYLING DETAILS ---
+Who:             ${data.who || ''}
+Looking For:     ${lookingForJoined || ''}
+Style Direction: ${data.styleDirection || ''}
+
+--- WEDDING DETAILS ---
+Date:      ${data.date || ''}
+Location:  ${data.location || ''}
+Functions: ${data.functions || ''}
+
+--- PREFERENCES ---
+Colors:      ${data.colors || ''}
+Inspiration: ${data.inspiration || ''}
+Additional:  ${data.additional || ''}
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully via nodemailer");
+    } catch (emailError) {
+      console.error("Failed to send email via nodemailer:", emailError);
       // We don't fail the whole request just because email failed, since CSV saved!
     }
 
